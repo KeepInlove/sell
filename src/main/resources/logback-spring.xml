@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration >
+    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                %d - %msg%n
+            </pattern>
+        </layout>
+    </appender>
+    <appender name="fileInfoLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>
+                %msg%n
+            </pattern>
+        </encoder>
+    <!--    滚轮动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <!--    路径-->
+            <fileNamePattern>
+                <!--路径-->
+                E:/log/info.%d.log
+            </fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <root level="info">
+        <!--<appender-ref ref="consoleLog"/>-->
+        <appender-ref ref="fileInfoLog"/>
+    </root>
+</configuration>

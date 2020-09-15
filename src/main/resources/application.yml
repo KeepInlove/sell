@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root # 123456
+    url: jdbc:mysql://localhost/sell?useSSL=false&serverTimezone=GMT%2B8&characterEncoding=utf-8 #本机mysql
+#    url: jdbc:mysql://12.0.0.1/sell?characterEncoding=utf-8&useSSL=false 连接虚拟机
+  jpa:
+    show-sql: true
+server:
+  servlet:
+    context-path: /sell
+#logging:
+#  pattern:
+#    console: "%d - %msg%n"
+#  file:
+#    name: E:/log/lab.log
+#  level: debug
