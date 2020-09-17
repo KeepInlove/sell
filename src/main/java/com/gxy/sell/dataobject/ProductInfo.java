@@ -1,5 +1,6 @@
 package com.gxy.sell.dataobject;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 

@@ -1,5 +1,7 @@
 package com.gxy.sell.dataobject;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -30,7 +32,6 @@ public class ProductCategory {
     private Integer categoryType;
  /*   修改时间
     private Date updateTime;
-
     创建时间
     private Date createTime;
     */
