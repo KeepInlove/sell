@@ -51,14 +51,14 @@ public class ProductServiceImplTest {
     @Test
     public void save() {
         ProductInfo productInfo=new ProductInfo();
-        productInfo.setProductId("b123456");
-        productInfo.setProductName("红米K30至尊版");
-        productInfo.setProductPrice(new BigDecimal(1999));
+        productInfo.setProductId("c123456");
+        productInfo.setProductName("小米10pro");
+        productInfo.setProductPrice(new BigDecimal(4999));
         productInfo.setProductStock(100);
-        productInfo.setProductDescription("很香");
+        productInfo.setProductDescription("大降价");
         productInfo.setProductIcon("http:mu.jpg");
         productInfo.setProductStatus(0);
-        productInfo.setCategoryType(1);
+        productInfo.setCategoryType(2);
         ProductInfo result=productService.save(productInfo);
         Assert.assertNotNull(result);
     }

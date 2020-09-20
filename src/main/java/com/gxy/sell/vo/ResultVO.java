@@ -21,5 +21,6 @@ public class ResultVO<T> {
     @ApiModelProperty("提示信息")
     private String msg;
     /*具体内容*/
+    @ApiModelProperty("数据信息")
     private T data;
 }

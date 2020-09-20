@@ -28,7 +28,6 @@ public class ProductServiceImpl implements ProductService {
 
     /**
      * 查询所以在架商品
-     *
      * @return
      */
     @Override
@@ -36,11 +35,21 @@ public class ProductServiceImpl implements ProductService {
         return repository.findByProductStatus(ProductStatusEnum.UP.getCode());
     }
 
+    /**
+     * 分页查询所以商品
+     * @param pageable
+     * @return
+     */
     @Override
     public Page<ProductInfo> findAll(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
+    /**
+     * 上架商品
+     * @param productInfo
+     * @return
+     */
     @Override
     public ProductInfo save(ProductInfo productInfo) {
         return repository.save(productInfo);

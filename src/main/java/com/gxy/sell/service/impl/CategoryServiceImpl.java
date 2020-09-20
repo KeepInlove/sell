@@ -23,16 +23,30 @@ public class CategoryServiceImpl implements CategoryService {
         return repository.findById(categoryId).get();
     }
 
+    /**
+     * 查询分类列表
+     * @return
+     */
     @Override
     public List<ProductCategory> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * 按产品分类id查询分类的信息
+     * @param categoryTypeList
+     * @return
+     */
     @Override
     public List<ProductCategory> findByCategoryTypeIn(List<Integer>categoryTypeList) {
         return repository.findByCategoryTypeIn(categoryTypeList);
     }
 
+    /**
+     * 添加商品分类
+     * @param productCategory
+     * @return
+     */
     @Override
     public ProductCategory save(ProductCategory productCategory) {
         return repository.save(productCategory);
