@@ -14,8 +14,7 @@ import java.util.List;
  */
 public interface ProductService {
 
-    ProductInfo findById(String productId);
-
+    ProductInfo findOne(String productId);
     /**
      * 查询所以在架商品
      * @return

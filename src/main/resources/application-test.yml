@@ -10,7 +10,7 @@ spring:
     show-sql: true
 server:
   servlet:
-    context-path: /sell/
+    context-path: /sell
   port: 8888
 #swagger 开关
 swagger2:

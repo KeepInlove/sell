@@ -22,7 +22,7 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductInfoRepository repository;
     @Override
-    public ProductInfo findById(String productId) {
+    public ProductInfo findOne(String productId) {
         return repository.findById(productId).get();
     }
 

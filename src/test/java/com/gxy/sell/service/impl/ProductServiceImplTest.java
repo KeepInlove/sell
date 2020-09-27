@@ -30,7 +30,7 @@ public class ProductServiceImplTest {
     private ProductServiceImpl productService;
     @Test
     public void findById() {
-        ProductInfo productInfo = productService.findById("a123456");
+        ProductInfo productInfo = productService.findOne("a123456");
 //        Assert.assertEquals("a",productInfo.getProductId());
         System.out.println(productInfo);
     }
