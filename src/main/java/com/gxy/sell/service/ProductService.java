@@ -1,6 +1,7 @@
 package com.gxy.sell.service;
 
 import com.gxy.sell.dataobject.ProductInfo;
+import com.gxy.sell.dto.CartDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -25,5 +26,7 @@ public interface ProductService {
     /*添加商品*/
     ProductInfo save(ProductInfo productInfo);
     /*加库存*/
+    void addStock(List<CartDTO>catDTOList);
     /*减库存*/
+    void decreaseStock(List<CartDTO>catDTOList);
 }

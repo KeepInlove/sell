@@ -32,11 +32,11 @@ public class OrderMasterRepositoryTest {
     public void saveTest(){
         OrderMaster orderMaster=new OrderMaster();
         orderMaster.setOrderId("b123");
-        orderMaster.setBuyerName("Guo");
+        orderMaster.setBuyerName("李凡");
         orderMaster.setBuyerPhone("12345678910");
         orderMaster.setBuyerAddress("南京工业职业技术大学");
         orderMaster.setBuyerOpenid("a123456");
-        orderMaster.setOrderAmount(new BigDecimal(500));
+        orderMaster.setOrderAmount(new BigDecimal(71));
         orderMaster.setCreateTime(new Date());
         orderMaster.setUpdateTime(new Date());
         OrderMaster result = repository.save(orderMaster);

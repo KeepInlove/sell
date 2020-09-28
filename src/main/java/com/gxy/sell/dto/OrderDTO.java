@@ -31,9 +31,9 @@ public class OrderDTO {
     /*买家总金额*/
     private BigDecimal orderAmount;
     /*订单状态,默认新下单*/
-    private  Integer orderStatus;
+    private  Integer orderStatus= OrderStatusEnum.NEW.getCode();
     /*支付状态,默认0未支付*/
-    private Integer payStatus;
+    private Integer payStatus= PayStatusEnum.WAIT.getCode();
     /*创建时间*/
     private Date createTime;
     /*更新时间*/
