@@ -2,6 +2,8 @@ package com.gxy.sell.service.impl;
 
 import com.gxy.sell.dataobject.OrderDetail;
 import com.gxy.sell.dto.OrderDTO;
+import com.gxy.sell.enums.OrderStatusEnum;
+import com.gxy.sell.enums.PayStatusEnum;
 import com.gxy.sell.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
@@ -30,7 +32,7 @@ import static org.junit.Assert.*;
 public class OrderServiceImplTest {
 
     @Autowired
-    OrderService orderService;
+    private OrderServiceImpl orderService;
     private  final String BUYER_OPENID="a123456";
     private  final String ORDER_ID="1601345064207232516";
     @Test
@@ -76,13 +78,22 @@ public class OrderServiceImplTest {
 
     @Test
     public void cancel() {
+        OrderDTO orderDTO = orderService.findOne("1601344942314693078");
+        OrderDTO result = orderService.cancel(orderDTO);
+        Assert.assertEquals(OrderStatusEnum.CANCEL.getCode(),result.getOrderStatus());
     }
 
     @Test
     public void finish() {
+        OrderDTO orderDTO = orderService.findOne("1601344786170151740");
+        OrderDTO result = orderService.finish(orderDTO);
+        Assert.assertEquals(OrderStatusEnum.FINISHED.getCode(),result.getOrderStatus());
     }
 
     @Test
     public void paid() {
+        OrderDTO orderDTO = orderService.findOne("1601345064207232516");
+        OrderDTO result = orderService.paid(orderDTO);
+        Assert.assertEquals(PayStatusEnum.SUCCESS.getCode(),result.getPayStatus());
     }
 }

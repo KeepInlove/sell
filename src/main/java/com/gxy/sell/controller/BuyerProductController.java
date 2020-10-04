@@ -25,11 +25,11 @@ import java.util.stream.Collectors;
 /**
  * @author GUO
  * @Classname BuyerProductController
- * @Description TODO
+ * @Description 买家接口模块
  * @Date 2020/9/17 14:09
  */
 @RestController
-@Api(tags = "买家接口模块")
+@Api(tags = "买家商品接口")
 @RequestMapping("/buyer/product")
 public class BuyerProductController {
     @Autowired

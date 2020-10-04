@@ -59,13 +59,23 @@ public class ProductServiceImpl implements ProductService {
     public ProductInfo save(ProductInfo productInfo) {
         return repository.save(productInfo);
     }
-
     /**
      * 上架商品数量
      * @param catDTOList
      */
     @Override
+    @Transactional
     public void addStock(List<CartDTO> catDTOList) {
+        for (CartDTO cartDTO:catDTOList){
+            ProductInfo productInfo=repository.findById(cartDTO.getProductId()).get();
+            if (productInfo==null){
+                throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+            }
+            Integer result=productInfo.getProductStock()+cartDTO.getProductQuantity();
+            productInfo.setProductStock(result);
+            repository.save(productInfo);
+        }
+
 
     }
 
