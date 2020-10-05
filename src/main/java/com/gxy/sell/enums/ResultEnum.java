@@ -12,6 +12,7 @@ import lombok.Getter;
 public enum ResultEnum {
     PARAM_ERROR(04,"参数不正确"),
     CART_EMPTY(05,"购物车为空"),
+    ORDER_OWNER_ERROR(06,"该订单不属于当前用户"),
 
     PRODUCT_NOT_EXIST(14,"商品不存在"),
     PRODUCT_NOT_ERROR(24,"库存不足"),
