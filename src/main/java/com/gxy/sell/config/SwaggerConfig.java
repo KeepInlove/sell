@@ -34,7 +34,7 @@ public class SwaggerConfig {
         ParameterBuilder parameterBuilder=new ParameterBuilder();
 //        parameterBuilder.name("token").description("swagger调试(模拟传入用户凭证)").modelRef(new ModelRef("String"))
 //                .parameterType("header").required(false);
-        parameterBuilder.name("token").description("swagger调试(传入用户凭证)").modelRef(new ModelRef("String"))
+        parameterBuilder.name("openid").description("swagger调试(传入用户凭证)").modelRef(new ModelRef("String"))
                 .parameterType("header").required(false);
         parameterList.add(parameterBuilder.build());
         return new Docket(DocumentationType.SWAGGER_2)

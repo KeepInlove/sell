@@ -13,8 +13,7 @@ server:
     context-path: /sell
   port: 8080
 #swagger 开关
-swagger2:
-   enable: true
+
 #logging:
 #  pattern:
 #    console: "%d - %msg%n"
