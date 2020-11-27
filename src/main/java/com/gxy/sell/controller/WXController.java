@@ -26,7 +26,7 @@ public class WXController {
     public void auth(@RequestParam("code")String code){
         log.info("进入auth方法...");
         log.info("code={}",code);
-        String url="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx6ae5e9be2a11ab4f&secret=345063d51bee0ea74810762bfed39ce7&code="+code+"&grant_type=authorization_code";
+        String url="https://api.weixin.qq.com/sns/oauth2/access_token?appid=&secret=&code="+code+"&grant_type=authorization_code";
         RestTemplate restTemplate=new RestTemplate();
         String response = restTemplate.getForObject(url, String.class);
         log.info("response={}",response);

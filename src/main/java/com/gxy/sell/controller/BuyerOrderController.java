@@ -62,6 +62,7 @@ public class BuyerOrderController {
         return ResultVOUtil.success(map);
     }
     //订单列表
+    @ApiOperation(value = "订单列表")
     @GetMapping("/list")
     public ResultVO<List<OrderDTO>>listResultVO(@RequestParam("openid") String openid,
                                                 @RequestParam(value = "page",defaultValue = "0") Integer page,
@@ -80,6 +81,7 @@ public class BuyerOrderController {
         return ResultVOUtil.success(orderDTOPage.getContent());
     }
     //订单详情
+    @ApiOperation(value = "订单详情")
     @GetMapping("/detail")
     public ResultVO<OrderDTO>detail(@RequestParam("openid")String openid,
                                     @RequestParam("orderId")String orderId){
@@ -89,6 +91,7 @@ public class BuyerOrderController {
 
     }
     //取消订单
+    @ApiOperation(value = "取消订单")
     @PostMapping("/cancel")
     public ResultVO cancel(@RequestParam("openid")String openid,
                            @RequestParam("orderId")String orderId){

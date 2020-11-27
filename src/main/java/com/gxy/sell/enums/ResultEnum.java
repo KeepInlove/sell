@@ -21,7 +21,8 @@ public enum ResultEnum {
     ORDER_STATUS_ERROR(35,"订单状态不正确"),
     ORDER_UPDATE_FAIL(36,"订单更新失败"),
     ORDER_DETAIL_EMPTY(37,"订单详情为空"),
-    ORDER_PAY_STATUS_ERROR(38,"订单支付状态不正确");
+    ORDER_PAY_STATUS_ERROR(38,"订单支付状态不正确"),
+    WXCHART_MP_ERROR(40,"微信公众账号错误");
     private Integer code;
     private String message;
 

@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * @author GUO
  * @Classname SwaggerConfiger
- * @Description TODO
+ * @Description Swagger配置
  * @Date 2020/7/11 15:59
  */
 @Configuration

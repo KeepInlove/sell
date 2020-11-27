@@ -2,3 +2,6 @@ spring:
   profiles:
     active: test
 
+wechat:
+  mpAppId:
+  mpAppSecret:
