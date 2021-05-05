@@ -21,13 +21,13 @@ import java.net.URLEncoder;
 /**
  * @author GUO
  * @Classname WeChatController
- * @Description TODO
+ * @Description 微信认证接口
  * @Date 2020/11/27 19:11
  */
 @Controller
 @RequestMapping("/wechat")
 @Slf4j
-@Api(tags = "微信配置接口")
+@Api(tags = "微信认证接口")
 public class WeChatController {
 
     @Autowired
@@ -57,6 +57,6 @@ public class WeChatController {
         }
         String openId = wxMpOAuth2AccessToken.getOpenId();
         log.info("openid={}",openId);
-        return "redirect:" +returnUrl+"?openid=" + openId;
+        return "redirect:" + returnUrl +"?openid=" + openId;
     }
 }

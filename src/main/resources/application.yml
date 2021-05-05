@@ -3,5 +3,9 @@ spring:
     active: test
 
 wechat:
-  mpAppId:
-  mpAppSecret:
+  mpAppId: xxxxxxx
+  mpAppSecret: xxxxxxx
+  mchId: xxxxxxx
+  mchKey: xxxxxxx
+  notifyUrl: xxxxxxx
+  keyPath: xxxxxxx

@@ -3,6 +3,7 @@ package com.gxy.sell.repository;
 import com.gxy.sell.dataobject.OrderDetail;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -13,4 +14,5 @@ import java.util.List;
  */
 public interface OrderDetailRepository extends JpaRepository<OrderDetail,String> {
     List<OrderDetail>findByOrderId(String orderId);
+    List<OrderDetail>findByProductPrice(BigDecimal price);
 }

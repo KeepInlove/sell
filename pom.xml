@@ -17,11 +17,22 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <mybatis.version>2.1.0</mybatis.version>
+        <!--<mybatis.version>2.1.0</mybatis.version>-->
         <swagger2-version>2.9.2</swagger2-version>
     </properties>
     <dependencies>
-        <!--微信第三方sdk-->
+        <!--模板-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
+        <!--微信支付第三方sdk-->
+        <dependency>
+            <groupId>cn.springboot</groupId>
+            <artifactId>best-pay-sdk</artifactId>
+            <version>1.3.0</version>
+        </dependency>
+        <!--微信公众号第三方sdk-->
         <dependency>
             <groupId>com.github.binarywang</groupId>
             <artifactId>weixin-java-mp</artifactId>
@@ -80,6 +91,11 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${swagger2-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 

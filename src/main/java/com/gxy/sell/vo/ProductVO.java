@@ -22,7 +22,7 @@ public class ProductVO {
     @JsonProperty("type")
     @ApiModelProperty("分类编号")
     private Integer categoryType;
-    @JsonProperty("list")
+    @JsonProperty("foods")
     @ApiModelProperty("商品列表")
     private List<ProductInfoVO> productInfoVOS;
 }

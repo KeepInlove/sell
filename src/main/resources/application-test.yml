@@ -5,11 +5,13 @@ spring:
     username: root
     password: root
     url: jdbc:mysql://localhost/sell?useSSL=false&serverTimezone=GMT%2B8&characterEncoding=utf-8 #本机mysql
-#    url: jdbc:mysql://192.168.10.130/sell?characterEncoding=utf-8&useSSL=false #连接虚拟机
+   #url: jdbc:mysql://192.168.10.130/sell?characterEncoding=utf-8&useSSL=false #连接虚拟机
   jpa:
     show-sql: true
   jackson:
     default-property-inclusion: non_null #返回值为null不返回
+  freemarker:
+    suffix: .ftl
 server:
   servlet:
     context-path: /sell
@@ -23,3 +25,11 @@ swagger2:
 #  file:
 #    name: E:/log/lab.log
 #  level: debug
+
+#wechat:
+#  mpAppId: xxxxxxx
+#  mpAppSecret: xxxxxxx
+#  mchId:
+#  mchKey:
+#  notifyUrl: xxxxxxx
+#  keyPath: #api证书路径

@@ -9,9 +9,9 @@ import lombok.Getter;
  * @Date 2020/9/26 17:00
  */
 @Getter
-public enum OrderStatusEnum {
+public enum OrderStatusEnum implements CodeEnum {
     NEW(1,"新订单"),
-    FINISHED(2,"完成订单"),
+    FINISHED(2,"完结"),
     CANCEL(0,"已取消");
     private Integer code;
     private String message;
@@ -20,4 +20,5 @@ public enum OrderStatusEnum {
         this.code = code;
         this.message = message;
     }
+
 }

@@ -13,6 +13,7 @@ import com.gxy.sell.exception.SellException;
 import com.gxy.sell.repository.OrderDetailRepository;
 import com.gxy.sell.repository.OrderMasterRepository;
 import com.gxy.sell.service.OrderService;
+import com.gxy.sell.service.PayService;
 import com.gxy.sell.service.ProductService;
 import com.gxy.sell.utils.KeyUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -47,6 +48,8 @@ public class OrderServiceImpl implements OrderService {
     private OrderDetailRepository orderDetailRepository;
     @Autowired
     private OrderMasterRepository orderMasterRepository;
+    @Autowired
+    private PayService payService;
 
     /**
      * 创建订单
@@ -107,7 +110,7 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     public OrderDTO findOne(String orderId) {
-        OrderMaster orderMaster = orderMasterRepository.findById(orderId).get();
+        OrderMaster orderMaster = orderMasterRepository.findById(orderId).orElse(null);
         if (orderMaster == null) {
             throw new SellException(ResultEnum.ORDER_NOT_EXIST);
         }
@@ -168,7 +171,7 @@ public class OrderServiceImpl implements OrderService {
         productService.addStock(cartDTOList);
         //如果已支付,退款
         if (orderDTO.getPayStatus().equals(PayStatusEnum.SUCCESS.getCode())){
-            //TODO
+            payService.refund(orderDTO);
         }
         return orderDTO;
     }
@@ -225,5 +228,13 @@ public class OrderServiceImpl implements OrderService {
             throw new SellException(ResultEnum.ORDER_UPDATE_FAIL);
         }
         return orderDTO;
+    }
+
+    @Override
+    public Page<OrderDTO> findList(Pageable pageable) {
+        Page<OrderMaster> orderMasterPage = orderMasterRepository.findAll(pageable);
+        List<OrderDTO> orderDTOList = OrderMaster2OrderDTOConverter.convert(orderMasterPage.getContent());
+        Page<OrderDTO> orderDTOPage=new PageImpl<OrderDTO>(orderDTOList,pageable,orderMasterPage.getTotalElements());
+        return orderDTOPage;
     }
 }

@@ -34,7 +34,7 @@ public class OrderServiceImplTest {
     @Autowired
     private OrderServiceImpl orderService;
     private  final String BUYER_OPENID="a123456";
-    private  final String ORDER_ID="1601345064207232516";
+    private  final String ORDER_ID="1620059828745478717";
     @Test
     public void create() {
         OrderDTO orderDTO=new OrderDTO();
@@ -62,8 +62,15 @@ public class OrderServiceImplTest {
     }
 
     @Test
+    public void list(){
+        PageRequest request=PageRequest.of(0,2);
+        Page<OrderDTO> orderDTOPage = orderService.findList(request);
+        Assert.assertNotEquals(0,orderDTOPage.getTotalElements());
+    }
+
+    @Test
     public void findOne() {
-        OrderDTO result = orderService.findOne(ORDER_ID);
+        OrderDTO result = orderService.findOne("1620059828745478717");
         log.info("[查询单个订单] result{}",result);
         Assert.assertEquals(ORDER_ID,result.getOrderId());
     }

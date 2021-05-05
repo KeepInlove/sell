@@ -2,6 +2,7 @@ package com.gxy.sell.service.impl;
 
 import com.gxy.sell.dataobject.ProductInfo;
 
+import com.gxy.sell.enums.ProductStatusEnum;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,6 +29,17 @@ import static org.junit.Assert.*;
 public class ProductServiceImplTest {
     @Autowired
     private ProductServiceImpl productService;
+
+    @Test
+    public void onSale(){
+        ProductInfo productInfo = productService.onSale("a123456");
+        Assert.assertEquals(ProductStatusEnum.UP,productInfo.getProductStatusEnum());
+    }
+    @Test
+    public void offSale(){
+        ProductInfo productInfo = productService.offSale("a123456");
+        Assert.assertEquals(ProductStatusEnum.DOWN,productInfo.getProductStatusEnum());
+    }
     @Test
     public void findById() {
         ProductInfo productInfo = productService.findOne("a123456");

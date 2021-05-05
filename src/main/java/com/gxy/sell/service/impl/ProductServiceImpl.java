@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author GUO
@@ -99,5 +100,31 @@ public class ProductServiceImpl implements ProductService {
         productInfo.setProductStock(result);
         repository.save(productInfo);
         }
+    }
+
+    @Override
+    public ProductInfo onSale(String productId) {
+       ProductInfo productInfo = repository.findById(productId).orElse(null);
+       if (productInfo==null){
+           throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+       }
+       if (productInfo.getProductStatusEnum()==ProductStatusEnum.UP){
+           throw new SellException(ResultEnum.PRODUCT_STATUS_ERROR);
+       }
+       productInfo.setProductStatus(ProductStatusEnum.UP.getCode());
+        return repository.save(productInfo);
+    }
+
+    @Override
+    public ProductInfo offSale(String productId) {
+        ProductInfo productInfo = repository.findById(productId).orElse(null);
+        if (productInfo==null){
+            throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+        }
+        if (productInfo.getProductStatusEnum()==ProductStatusEnum.DOWN){
+            throw new SellException(ResultEnum.PRODUCT_STATUS_ERROR);
+        }
+        productInfo.setProductStatus(ProductStatusEnum.DOWN.getCode());
+        return repository.save(productInfo);
     }
 }

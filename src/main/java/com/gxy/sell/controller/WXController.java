@@ -12,10 +12,10 @@ import org.springframework.web.client.RestTemplate;
 /**
  * @author GUO
  * @Classname WXController
- * @Description 微信认证接口
+ * @Description 微信测试接口
  * @Date 2020/11/23 19:59
  */
-@Api(tags = "微信接口")
+@Api(tags = "微信测试接口")
 @RestController
 @RequestMapping("/wx")
 @Slf4j
@@ -26,7 +26,8 @@ public class WXController {
     public void auth(@RequestParam("code")String code){
         log.info("进入auth方法...");
         log.info("code={}",code);
-        String url="https://api.weixin.qq.com/sns/oauth2/access_token?appid=&secret=&code="+code+"&grant_type=authorization_code";
+//        String url=" https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code";
+        String url="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx6ae5e9be2a11ab4f&secret=345063d51bee0ea74810762bfed39ce7&code="+code+"&grant_type=authorization_code";
         RestTemplate restTemplate=new RestTemplate();
         String response = restTemplate.getForObject(url, String.class);
         log.info("response={}",response);

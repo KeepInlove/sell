@@ -35,13 +35,20 @@ public class OrderDetailRepositoryTest {
         orderDetail.setProductPrice(new BigDecimal(5299.00));
         orderDetail.setProductQuantity(1);
         OrderDetail result = repository.save(orderDetail);
+
         Assert.assertNotNull(result);
 
     }
     @Test
     public void findByOrderId() {
-        List<OrderDetail> orderDetailList = repository.findByOrderId("d20200001");
-//        System.out.println(orderDetailList);
+        List<OrderDetail> orderDetailList = repository.findByOrderId("1601344942314693078");
+        System.out.println(orderDetailList);
+        Assert.assertNotEquals(0,orderDetailList.size());
+    }
+    @Test
+    public void findByProductPrice() {
+        List<OrderDetail> orderDetailList = repository.findByProductPrice(BigDecimal.valueOf(49.00));
+        System.out.println(orderDetailList);
         Assert.assertNotEquals(0,orderDetailList.size());
     }
 }

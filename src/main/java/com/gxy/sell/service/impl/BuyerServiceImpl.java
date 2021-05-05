@@ -34,12 +34,12 @@ public class BuyerServiceImpl implements BuyerService {
         return orderService.cancel(orderDTO);
     }
     private OrderDTO checkOrderOwner(String openid,String orderId){
-        OrderDTO orderDTO = orderService.findOne(openid);
+        OrderDTO orderDTO = orderService.findOne(orderId);
         if (orderDTO==null){
             return null;
         }
         //p判断是否是自己的订单
-        if (!orderDTO.getBuyerOpenid().equals(openid)){
+        if (!orderDTO.getBuyerOpenid().equalsIgnoreCase(openid)){
             log.error("【查询订单】订单的openid不一致,openid={}，orderDTO={}",openid,orderDTO);
             throw new SellException(ResultEnum.ORDER_OWNER_ERROR);
         }

@@ -49,4 +49,9 @@ public class OrderMasterRepositoryTest {
         Assert.assertNotEquals(0,result.getTotalElements());
 //        System.out.println(result.getTotalElements());
     }
+    @Test
+    public void findOne(){
+        OrderMaster orderMaster = repository.findById("1620059828745478717").get();
+        System.out.println(orderMaster);
+    }
 }

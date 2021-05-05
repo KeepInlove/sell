@@ -18,8 +18,9 @@ import org.springframework.stereotype.Component;
 @Component
 @Configuration(proxyBeanMethods = true)
 public class WeChatMpConfig {
+
     @Autowired
-    private WechartConfig wechartConfig;
+    private WechartAccountConfig wechartAccountConfig;
     @Bean
     public WxMpService wxMpService(){
         WxMpService wxMpService=new WxMpServiceImpl();
@@ -30,8 +31,8 @@ public class WeChatMpConfig {
     @Bean
     public WxMpConfigStorage wxMpConfigStorage(){
         WxMpInMemoryConfigStorage wxMpConfigStorage=new WxMpInMemoryConfigStorage();
-        wxMpConfigStorage.setAppId(wechartConfig.getMpAppId());
-        wxMpConfigStorage.setSecret(wechartConfig.getMpAppSecret());
+        wxMpConfigStorage.setAppId(wechartAccountConfig.getMpAppId());
+        wxMpConfigStorage.setSecret(wechartAccountConfig.getMpAppSecret());
         return  wxMpConfigStorage;
     }
 }
