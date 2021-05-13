@@ -8,6 +8,9 @@ spring:
     url: jdbc:mysql://xxxxxxx/sell?characterEncoding=utf-8&useSSL=false #连接虚拟机
   jpa:
     show-sql: true
+  redis:
+    host: 127.0.0.1
+    port: 6379
 server:
   servlet:
     context-path: /sell

@@ -12,9 +12,7 @@ import com.gxy.sell.enums.ResultEnum;
 import com.gxy.sell.exception.SellException;
 import com.gxy.sell.repository.OrderDetailRepository;
 import com.gxy.sell.repository.OrderMasterRepository;
-import com.gxy.sell.service.OrderService;
-import com.gxy.sell.service.PayService;
-import com.gxy.sell.service.ProductService;
+import com.gxy.sell.service.*;
 import com.gxy.sell.utils.KeyUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -29,6 +27,7 @@ import sun.misc.OSEnvironment;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -50,6 +49,10 @@ public class OrderServiceImpl implements OrderService {
     private OrderMasterRepository orderMasterRepository;
     @Autowired
     private PayService payService;
+    @Autowired
+    private PushMessageService pushMessageService;
+    @Autowired
+    private WebSocket webSocket;
 
     /**
      * 创建订单
@@ -100,6 +103,10 @@ public class OrderServiceImpl implements OrderService {
                 .collect(Collectors.toList());
         productService.decreaseStock(catDTOList);
 
+        //推送创建订单状态
+        pushMessageService.orderStatus(orderDTO);
+        //发生websocket消息
+        webSocket.sendMessage(orderDTO.getOrderId());
         return orderDTO;
     }
 
@@ -197,6 +204,8 @@ public class OrderServiceImpl implements OrderService {
             log.error("【完结订单】更新失败，orderMaster={}",orderMaster);
             throw new SellException(ResultEnum.ORDER_UPDATE_FAIL);
         }
+        //推送订单模板消息
+        pushMessageService.orderStatus(orderDTO);
         return orderDTO;
     }
 
@@ -227,6 +236,9 @@ public class OrderServiceImpl implements OrderService {
             log.error("【订单支付】更新失败，orderMaster={}",orderMaster);
             throw new SellException(ResultEnum.ORDER_UPDATE_FAIL);
         }
+        //TODO
+        //推送支付状态
+        pushMessageService.orderStatus(orderDTO);
         return orderDTO;
     }
 
@@ -234,6 +246,8 @@ public class OrderServiceImpl implements OrderService {
     public Page<OrderDTO> findList(Pageable pageable) {
         Page<OrderMaster> orderMasterPage = orderMasterRepository.findAll(pageable);
         List<OrderDTO> orderDTOList = OrderMaster2OrderDTOConverter.convert(orderMasterPage.getContent());
+        //TODO
+//        Collections.reverse(orderDTOList);
         Page<OrderDTO> orderDTOPage=new PageImpl<OrderDTO>(orderDTOList,pageable,orderMasterPage.getTotalElements());
         return orderDTOPage;
     }

@@ -27,9 +27,9 @@ swagger2:
 #  level: debug
 
 #wechat:
-#  mpAppId: xxxxxxx
-#  mpAppSecret: xxxxxxx
+#  mpAppId: wx44be68379190ec66
+#  mpAppSecret: fc2edbd2fc485f81d01b7969a0e4ccd6
 #  mchId:
 #  mchKey:
-#  notifyUrl: xxxxxxx
+#  notifyUrl: http://ysell.natapp1.cc/sell/pay/notify
 #  keyPath: #api证书路径

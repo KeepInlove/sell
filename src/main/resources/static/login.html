@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- @author GUO
+ @Classname login
+ @Description TODO
+ @Date 2021/5/10 1:13
+ -->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/sell/css/style.css">
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+<div class="container">
+    <h2 style="text-align: center;color: chocolate;margin-top:100px">卖家后端登录</h2>
+    <div class="row clearfix" style="margin-top: 80px;text-align: center">
+        <div class="column col-md-10">
+            <form class="form-horizontal" method="post" role="form" action="/sell/seller/login">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-5 control-label"
+                           style="color:chocolate;font-size: 18px">账号</label>
+                    <div class="col-sm-6">
+                        <input type="text" name="username" class="form-control" id="inputEmail3"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-5 control-label"
+                           style="color: chocolate; font-size: 18px">密码</label>
+                    <div class="col-sm-6">
+                        <input name="password" type="password" class="form-control" id="inputPassword3"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-11">
+                        <button type="submit" class="btn btn-default btn-success">登录</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<style type="text/css">
+    body {
+        background: url("/sell/img/10197.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 100% auto;
+    }
+</style>
+</html>

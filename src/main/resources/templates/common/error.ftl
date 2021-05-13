@@ -19,6 +19,6 @@
     </div>
     </body>
     <script>
-        setTimeout('location.href = "${url}" ',3000);
+        <#--setTimeout('location.href = "${url}" ',3000);-->
     </script>
 </html>

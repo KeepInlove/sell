@@ -17,6 +17,7 @@
                             <ul class="breadcrumb">
                                 <li>
                                     <a href="#">订单列表</a>
+                                    <button style="margin-left: 800px" class="btn btn-default btn-primary " onclick="playSong()">开启提示</button>
                                 </li>
                             </ul>
 
@@ -82,8 +83,67 @@
                 </div>
             </div>
         </div>
+        <#--弹窗-->
+        <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            提醒
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        您有新的订单啦
+                    </div>
+                    <div class="modal-footer">
+                        <button onclick="javascript:document.getElementById('notice').pause()" type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button onclick="location.reload()" type="button" class="btn btn-primary">查看新的订单</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <audio id="notice" loop="loop">
+            <source src="/sell/mp3/song.mp3" type="audio/mpeg" />
+        </audio>
         </body>
+        <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script>
+            function playSong() {
+                let audioPlay = document.getElementById('notice')
+                audioPlay.play()
+                setTimeout(() => {
+                    audioPlay.pause()
+                    audioPlay.load()
+                }, 1000)
+            }
+            var webSocket=null
+            if ('WebSocket'in window){
+                webSocket=new WebSocket('ws://ysell.natapp1.cc/sell/webSocket');
+            }else {
+                alert("该浏览器不支持WebSocke!!")
+            }
+            webSocket.onopen=function (event) {
+                console.log('建立连接');
+            };
+            webSocket.onclose=function (event) {
+                console.log('连接关闭');
+            };
+            webSocket.onmessage=function (event) {
+                // console.log('收到消息'+event.data);
+            // 弹窗提醒,播放通知
+                $("#myModal").modal('show');
+                // document.getElementById('notice').play();
+                document.getElementById('notice').play();
+
+            };
+            webSocket.onerror=function () {
+                alert('WebSocket通信发生错误')
+            };
+            window.onbeforeunload=function () {
+                webSocket.close();
+            };
             function cancel(orderId) {
                 var msg = "您要取消订单嘛？";
                 if (confirm(msg)==true){
@@ -96,4 +156,5 @@
                 }
             }
         </script>
+
 </html>

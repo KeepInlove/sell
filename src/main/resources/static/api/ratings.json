@@ -7,14 +7,10 @@
       "deliveryTime": 30,
       "score": 5,
       "rateType": 0,
-      "text": "不错,粥很好喝,我经常吃这一家,非常赞,以后也会常来吃,强烈推荐.",
+      "text": "不错,很好喝,强烈推荐.",
       "avatar": "http://static.galileo.xiaojukeji.com/static/tms/default_header.png",
       "recommend": [
-        "南瓜粥",
-        "皮蛋瘦肉粥",
-        "扁豆焖面",
-        "娃娃菜炖豆腐",
-        "牛肉馅饼"
+        "杨枝甘露"
       ]
     },
     {
@@ -26,7 +22,7 @@
       "text": "服务态度不错",
       "avatar": "http://static.galileo.xiaojukeji.com/static/tms/default_header.png",
       "recommend": [
-        "扁豆焖面"
+        "杨枝甘露"
       ]
     },
     {
@@ -74,7 +70,7 @@
       "deliveryTime": 30,
       "score": 5,
       "rateType": 0,
-      "text": "很喜欢的粥店",
+      "text": "很喜欢的店",
       "avatar": "http://static.galileo.xiaojukeji.com/static/tms/default_header.png",
       "recommend": []
     },
@@ -104,10 +100,10 @@
       "deliveryTime": "",
       "score": 4,
       "rateType": 0,
-      "text": "孩子喜欢吃这家",
+      "text": "孩子喜欢这家",
       "avatar": "http://static.galileo.xiaojukeji.com/static/tms/default_header.png",
       "recommend": [
-        "南瓜粥"
+        "杨枝甘露"
       ]
     },
     {
@@ -116,7 +112,7 @@
       "deliveryTime": "",
       "score": 4,
       "rateType": 0,
-      "text": "粥挺好吃的",
+      "text": "挺好吃的",
       "avatar": "http://static.galileo.xiaojukeji.com/static/tms/default_header.png",
       "recommend": []
     },
@@ -176,7 +172,7 @@
       "deliveryTime": "",
       "score": 5,
       "rateType": 0,
-      "text": "吃了还想再吃",
+      "text": "",
       "avatar": "http://static.galileo.xiaojukeji.com/static/tms/default_header.png",
       "recommend": []
     },
@@ -196,7 +192,7 @@
       "deliveryTime": 30,
       "score": 5,
       "rateType": 0,
-      "text": "好吃",
+      "text": "好",
       "avatar": "http://static.galileo.xiaojukeji.com/static/tms/default_header.png",
       "recommend": []
     },
@@ -226,7 +222,7 @@
       "deliveryTime": "",
       "score": 4,
       "rateType": 0,
-      "text": "很喜欢的粥",
+      "text": "很喜欢",
       "avatar": "http://static.galileo.xiaojukeji.com/static/tms/default_header.png",
       "recommend": []
     },

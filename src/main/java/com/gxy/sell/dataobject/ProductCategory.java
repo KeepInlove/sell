@@ -3,6 +3,7 @@ package com.gxy.sell.dataobject;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
@@ -20,6 +21,7 @@ import java.util.Date;
  */
 @Entity
 @DynamicUpdate  //数据库时间更新
+@DynamicInsert //属性为空不插入
 @Data
 public class ProductCategory {
     /*类目id*/
@@ -30,11 +32,11 @@ public class ProductCategory {
     private String categoryName;
     /*类目编号*/
     private Integer categoryType;
- /*   修改时间
+//   修改时间
     private Date updateTime;
-    创建时间
+//    创建时间
     private Date createTime;
-    */
+
     public ProductCategory(){}
     public ProductCategory(String categoryName, Integer categoryType) {
         this.categoryName = categoryName;

@@ -10,4 +10,5 @@
     <title>卖家商品列表</title>
     <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/sell/css/style.css">
+    <link rel="shortcut icon" href="http://ysell.natapp1.cc/sell/img/favicon.ico">
 </head>

@@ -1,5 +1,6 @@
 package com.gxy.sell.controller;
 
+import com.gxy.sell.config.ProjectUrlConfig;
 import com.gxy.sell.enums.ResultEnum;
 import com.gxy.sell.exception.SellException;
 import io.swagger.annotations.Api;
@@ -32,13 +33,14 @@ public class WeChatController {
 
     @Autowired
     private WxMpService wxMpService;
-
+    @Autowired
+    private ProjectUrlConfig projectUrlConfig;
     @GetMapping("/authorize")
     public String authorize(@RequestParam("returnUrl") String returnUrl){
 //        WxMpService wxMpService=new WxMpServiceImpl();
         //1.配置
         //2.调用方法
-        String url="http://ysell.natapp1.cc/sell/wechat/userInfo";
+        String url=projectUrlConfig.getWechatMpAuthorize()+"/sell/wechat/userInfo";
         String redirectUrl = wxMpService.oauth2buildAuthorizationUrl(url, WxConsts.OAUTH2_SCOPE_BASE, URLEncoder.encode(returnUrl));
         log.info("【微信网页授权】获取code,redirectUrl={}",redirectUrl);
         return "redirect:" + redirectUrl;

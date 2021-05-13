@@ -5,6 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import javax.net.ssl.SSLContext;
+import java.util.Map;
 
 /**
  * @author GUO
@@ -41,5 +42,9 @@ public class WechartAccountConfig {
      * 微信异步通知地址
      */
     private String notifyUrl;
+    /**
+     * 微信模版id
+     */
+    private Map<String, String> templateId;
 
 }
